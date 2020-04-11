@@ -1,0 +1,35 @@
+#! /usr/bin/env ansible-playbook -i hosts
+
+---
+- hosts: all
+  vars:
+    homebrew_packages:
+      - zsh
+      - tmux
+      - neovim
+      - git
+      - ripgrep
+    homebrew_cask_apps:
+      - google-chrome
+      - insync
+      - vmware-horizon-client
+      - virtualbox
+      - vagrant
+      - spotify
+      - sublime-text
+      - kindle
+      - microsoft-office
+  tasks:
+    - name: Install homebrew packages
+      homebrew:
+        name: '{{ item }}'
+        state: latest
+      loop: '{{ homebrew_packages }}'
+    - name: Install homebrew apps
+      homebrew_cask:
+        name: '{{ item }}'
+        state: installed
+      loop: '{{ homebrew_cask_apps }}'
+    - name: brew cleanup
+      shell: brew cleanup
+
