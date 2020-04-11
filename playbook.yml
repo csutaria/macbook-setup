@@ -9,13 +9,16 @@
       - neovim
       - git
       - ripgrep
+      - ansible
     homebrew_cask_apps:
       - google-chrome
+      - iterm2
       - insync
       - vmware-horizon-client
       - virtualbox
       - vagrant
       - spotify
+      - pocket-casts
       - sublime-text
       - kindle
       - microsoft-office
@@ -32,4 +35,8 @@
       loop: '{{ homebrew_cask_apps }}'
     - name: brew cleanup
       shell: brew cleanup
+    - name: Clear package cache
+      shell: rm -fr $(brew --cache)
+    - name: Clear Caskroom directory
+      shell: rm -fr /usr/local/Caskroom
 
