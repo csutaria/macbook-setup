@@ -19,4 +19,4 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install ansible
 
-./playbook.yaml
+./playbook.yml
