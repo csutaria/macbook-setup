@@ -37,6 +37,4 @@
       shell: brew cleanup
     - name: Clear package cache
       shell: rm -fr $(brew --cache)
-    - name: Clear Caskroom directory
-      shell: rm -fr /usr/local/Caskroom
 
