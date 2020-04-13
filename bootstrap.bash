@@ -19,4 +19,6 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install ansible
 
+# Initialize and run Ansible playbook
+ansible-galaxy install -r requirements.yml
 ./playbook.yml

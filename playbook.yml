@@ -1,4 +1,4 @@
-#! /usr/bin/env ansible-playbook -i hosts
+#! /usr/bin/env ansible-playbook -i hosts -vvvv
 
 ---
 - hosts: all
@@ -21,7 +21,14 @@
       - pocket-casts
       - sublime-text
       - kindle
+      - visual-studio-code
       - microsoft-office
+      - bartender
+    mas_installed_apps:
+      - { id: 568494494, name: "Pocket" }
+      - { id: 441258766, name: "Magnet" }
+  roles:
+    - geerlingguy.mas
   tasks:
     - name: Install homebrew packages
       homebrew:
@@ -32,6 +39,7 @@
       homebrew_cask:
         name: '{{ item }}'
         state: installed
+        accept_external_apps: True
       loop: '{{ homebrew_cask_apps }}'
     - name: brew cleanup
       shell: brew cleanup
