@@ -1,5 +1,5 @@
 # macbook-setup
-Tools and configuration files to set up a MacBook
+Tools and configuration files to set up a MacBook using Ansible
 
 ## Using macbook-setup
 - Clone this repo
